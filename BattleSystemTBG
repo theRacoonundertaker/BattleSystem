@@ -1,0 +1,86 @@
+#include<iostream> //li
+using namespace std;
+//declarations
+void BattleSystem(); 
+int MonsterGen();
+
+int PlayerHealth = 100;//globel variable!
+
+
+int main() { //starting point of program
+
+	//game variables
+	int room = 1;
+	char input = 'a';
+	int PlayerHealth = 100;
+
+	//game loop
+	while (input != 'q' && PlayerHealth >= 0) { //game quits if user types q or runs out of health
+		switch (room) {
+		case 1:
+			cout << "you're in room 1, you can go (s)outh" << endl;
+			cin >> input;
+			if (input == 's')
+				room = 2;
+			break;
+		case 2:
+			BattleSystem(); //function call
+			cout << "you're in room 2, you can go (n)outh" << endl;
+			cin >> input;
+			if (input == 'n')
+				room = 1;
+			break;
+
+		}
+
+	}//end game loop
+}//end main
+
+//function definition
+void BattleSystem() {
+	int MonsterType = MonsterGen(); //functon call
+	int MonsterHealth = 0;
+	int MonsterDmg = 0;
+	int Player
+
+	//set monster's health depending on what type it is------------------------------
+	if (MonsterType == 1) {
+		MonsterHealth = 30;
+	}
+	if (MonsterType == 2) {
+		MonsterHealth = 7;
+
+	}
+
+	//set the monster's damage depending on what type it is-----------------------------
+	if (MonsterType == 1) {
+		MonsterDmg = rand() % 20 + 1; //he'll hurt you between 1-20
+
+		if (MonsterType == 2) 
+	}
+	// YOU DO THIS! add damage for spider 5-10
+
+	while (MonsterHealth > 0 && PlayerHealth > 0) {
+		cout << "Monster bites you for 20 HP" <<MonsterDmg<<"HP" << endl;
+		PlayerHealth -= MonsterDmg;
+		cout << "You attack the monster for 10 HP" << endl << endl;
+		MonsterHealth -= PlayerDmg;
+		system("pause");
+		cout << "Your health is now " << PlayerHealth << ", and the monster's health is" << MonsterHealth << endl;
+		system("pause");
+
+	}
+	if (MonsterHealth <=0)
+		
+}
+	int MonsterGen() {
+		int num = rand() % 100; //range of 0-99
+		if (num < 50) {
+			cout << "a skeleton appears" << endl;
+			return 1;
+		}
+		else {
+			cout << "a spider appears" << endl;
+			return 2;
+		}
+	}
